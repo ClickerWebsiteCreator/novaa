@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Nova</title>
+<meta name="description" content="Nova – Bibliothek und Suche für iPhone">
+<meta name="theme-color" content="#151619">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nova">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <!-- Start: Suchleiste -->
+  <section class="view" id="v-start">
+    <header class="hero">
+      <div class="logo"><b>Nova</b></div>
+      <div id="clock"></div>
+    </header>
+    <form id="searchForm" class="search" autocomplete="off">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" enterkeyhint="search" placeholder="Suchen oder Adresse eingeben" spellcheck="false" autocapitalize="off" autocorrect="off">
+      <button type="button" id="qClear" class="clr" hidden aria-label="Leeren">×</button>
+    </form>
+    <div id="sugg"></div>
+    <div id="startBody">
+      <h3 class="shead">Schnellzugriffe <button class="link" id="editLinks">Bearbeiten</button></h3>
+      <div id="links" class="links"></div>
+      <h3 class="shead">Zuletzt in der Bibliothek</h3>
+      <div id="recent" class="recent"></div>
+    </div>
+  </section>
+
+  <!-- Bibliothek -->
+  <section class="view" id="v-lib" hidden>
+    <header class="bar">
+      <div id="crumbs" class="crumbs"></div>
+      <button class="icon" id="libMenu" aria-label="Mehr"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></button>
+    </header>
+    <div class="libtools">
+      <div class="search small"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="libQ" type="search" placeholder="In der Bibliothek suchen" autocomplete="off"></div>
+      <div class="chips" id="typeChips"></div>
+    </div>
+    <div id="selBar" class="selbar" hidden></div>
+    <div id="grid" class="grid"></div>
+    <div class="fab">
+      <button class="btn sec" id="newFolder"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10v6M9 13h6"/></svg>Ordner</button>
+      <button class="btn" id="addFiles"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Hinzufügen</button>
+    </div>
+    <input type="file" id="fileIn" multiple hidden>
+  </section>
+
+  <!-- Einstellungen -->
+  <section class="view" id="v-set" hidden>
+    <header class="bar"><h2>Einstellungen</h2></header>
+    <div id="setBody" class="setbody"></div>
+  </section>
+
+  <nav id="tabs">
+    <button data-v="start" class="on"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>Suche</span></button>
+    <button data-v="lib"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Bibliothek</span></button>
+    <button data-v="set"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg><span>Einstellungen</span></button>
+  </nav>
+</div>
+<div id="sheet" hidden></div>
+<div id="toast" hidden></div>
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
