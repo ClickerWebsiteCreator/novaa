@@ -1,7 +1,7 @@
 // Service Worker: speichert die App-Dateien, damit Nova auch offline startet.
 // Bei jeder neuen Version VERSION erhöhen – dann lädt das iPhone die Dateien neu.
-const VERSION = 'nova-v1';
-const FILES = ['./', './index.html', './manifest.webmanifest', './css/app.css', './js/db.js', './js/app.js', './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png'];
+const VERSION = 'nova-v2';
+const FILES = ['./', './index.html', './manifest.webmanifest', './app.css', './db.js', './app.js', './icon-180.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
